@@ -32,7 +32,13 @@ function randing (){
         interimTranscript = transcript;
       }
     }
-    resultDiv.innerHTML = finalTranscript + '<i>' + interimTranscript + '</i>';
+    resultDiv.innerText =  finalTranscript + interimTranscript;
+    const formData = new FormData();//FormDataオブジェクトを作成
+    formData.append('user_message', resultDiv.textContent)//FormDataオブジェクトの中に音声入力された文字列を含める
+    const XHR = new XMLHttpRequest();//リクエストを送信するオブジェクトを生成
+    XHR.open('POST', '/talks', true);//リクエスト先を追加
+    XHR.responseType = 'json'//レスポンスをJsonに指定
+    XHR.send(formData);//リクエスト送信
   };
   
   startBtn.onmousedown = () => {
@@ -40,6 +46,7 @@ function randing (){
   };
   startBtn.onmouseup = () => {
     speech.stop(); //ボタンを離すと入力受付終了
+
     programResult.innerHTML = text; //プログラムの仮応答を要素に挿入
     speechSynthesis.speak( synthes );
   };
