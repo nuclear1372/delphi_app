@@ -11,6 +11,9 @@ function landing (){
   let finalTranscript = ''; // 確定した(黒の)認識結果
   const formData = new FormData();//FormDataオブジェクトを作成
   const XHR = new XMLHttpRequest();//リクエストを送信するオブジェクトを生成
+  var voice = speechSynthesis.getVoices().find(function(voice){ //音声の種類のオブジェクトを取得（１回目）
+    return voice.name === "Google 日本語";
+  });
 
   startBtn.onmousedown = () => {
     speech.start(); //ボタンを押すと入力受付開始
@@ -34,12 +37,16 @@ function landing (){
   XHR.onload = () => {
     programResult.innerText = XHR.response.program_message; //プログラムからの応答を要素に挿入
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成
+    var voice = speechSynthesis.getVoices().find(function(voice){ //音声の種類のオブジェクトを取得（２回目）
+      return voice.name === "Google 日本語";
+    });
+    //音声の種類をオブジェクトを２回取得しないと、なぜか変更が反映されない
+
     //音声出力APIにパラメータを設定
-    synthes.lang = 'ja-JP';          //出力する言語
-    synthes.voiveURI = 1;            //出力する音声の種類
+    synthes.voice = voice;            //出力する音声の種類
     synthes.volume = 1;              // 出力する音声のボリューム
-    synthes.rate = 1;                // 出力する音声の速さ
-    synthes.pitch = 2;               // 出力する音声のピッチ(高さ)
+    synthes.rate = 0.9;                // 出力する音声の速さ
+    synthes.pitch = 1;               // 出力する音声のピッチ(高さ)
     synthes.text = programResult.textContent;             // 出力する文章
     speechSynthesis.speak( synthes );//音声を出力
   };
