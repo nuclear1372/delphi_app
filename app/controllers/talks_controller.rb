@@ -6,5 +6,7 @@ class TalksController < ApplicationController
 
   def create
     user_message = params[:user_message]
+    program_message = 'こんにちは'
+    render json:{program_message: program_message}
   end
 end
