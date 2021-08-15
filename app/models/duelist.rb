@@ -12,6 +12,5 @@ class Duelist < ActiveHash::Base
         return data[:name] + 'のエースカードは' + data[:favorite_card] + 'です。' + '名台詞は' + data[:reaction]
       end
     end
-    'すみません、よくわかりません'
   end
 end
