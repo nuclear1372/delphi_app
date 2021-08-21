@@ -6,8 +6,8 @@ function landing (){
   speech.continuous = true; // 連続音節の音声認識を行うか
   speech.maxAlternatives = 1; // 認識結果候補の個数
   const startBtn = document.getElementById('talk-btn'); //Let's talkの要素を取得
-  const resultDiv = document.getElementById("result-div"); //文字列に変換された音声が入る要素を取得
-  const programResult = document.getElementById('program-result'); //プログラムからの応答が入る要素を取得
+  const userMessage = document.getElementById("user-message"); //文字列に変換された音声が入る要素を取得
+  const programMessage = document.getElementById('program-message'); //プログラムからの応答が入る要素を取得
   let finalTranscript = ''; // 確定した(黒の)認識結果
   const formData = new FormData();//FormDataオブジェクトを作成
   const XHR = new XMLHttpRequest();//リクエストを送信するオブジェクトを生成
@@ -18,14 +18,20 @@ function landing (){
   startBtn.onmousedown = () => {
     speech.start(); //ボタンを押すと入力受付開始
   };
+
   startBtn.onmouseup = () => {
     speech.stop(); //ボタンを離すと入力受付終了
   };
   
   speech.onresult = (e) => {                                //音声認識サービスと通信し、結果を返した時に実行
     let interimTranscript = event.results[0][0].transcript; // 暫定の認識結果
-    resultDiv.innerText =  interimTranscript;               //結果をresultDivに文字列として含める。
-    formData.append('user_message', resultDiv.textContent)  //FormDataオブジェクトの中に、音声入力された文字列を含める
+    const user_message_html = `
+                              <li>
+                                ${interimTranscript}
+                              </li>
+                              `;
+    userMessage.innerHTML = user_message_html;               //結果をuserMessageに文字列として含める。
+    formData.append('user_message', interimTranscript)  //FormDataオブジェクトの中に、音声入力された文字列を含める
   };
   
   speech.onend = () => {               //音声認識サービスとの接続が切れた時に実行
@@ -35,8 +41,14 @@ function landing (){
   };
   
   XHR.onload = () => {
-    programResult.innerText = XHR.response.program_message; //プログラムからの応答を要素に挿入
+    const program_message_html = `
+                  <li class="fadeIn">
+                    ${XHR.response.program_message}
+                  </li>
+                  `;
+    programMessage.innerHTML = program_message_html; //プログラムからの応答を要素に挿入
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成
+    var speaker = window.speechSynthesis;
     var voice = speechSynthesis.getVoices().find(function(voice){ //音声の種類のオブジェクトを取得（２回目）
       return voice.name === "Google 日本語";
     });
@@ -47,8 +59,8 @@ function landing (){
     synthes.volume = 1;              // 出力する音声のボリューム
     synthes.rate = 0.9;                // 出力する音声の速さ
     synthes.pitch = 1;               // 出力する音声のピッチ(高さ)
-    synthes.text = programResult.textContent;             // 出力する文章
-    speechSynthesis.speak( synthes );//音声を出力
+    synthes.text = XHR.response.program_message;             // 出力する文章
+    speaker.speak( synthes );//音声を出力
   };
 };
 
