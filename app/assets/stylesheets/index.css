@@ -2,6 +2,9 @@ li {
   text-align: center;
   list-style: none;
   color: rebeccapurple;
+  font-size: larger;
+  border: rebeccapurple solid 1px;
+  border-radius: 20px;
 }
 
 h2 {
@@ -15,11 +18,14 @@ h2 {
 
 .talk-action {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .messages {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 70%;
   width: 100%;
 }
@@ -37,6 +43,7 @@ h2 {
 .talk-btn {
   padding: 30px;
   margin: 20px;
+  font-size: large;
 }
 
 .action-box {
@@ -131,9 +138,6 @@ h2 {
   100% {
   transform: scale(0.8);
   }
-}
-.test-wave{
-  height: 500px;
 }
 .wave{
   position:relative;
