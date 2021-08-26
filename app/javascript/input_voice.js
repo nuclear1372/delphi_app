@@ -26,9 +26,9 @@ function landing (){
   speech.onresult = (e) => {                                //音声認識サービスと通信し、結果を返した時に実行
     let interimTranscript = event.results[0][0].transcript; // 暫定の認識結果
     const user_message_html = `
-                              <li>
+                              <p>
                                 ${interimTranscript}
-                              </li>
+                              </p>
                               `;
     userMessage.innerHTML = user_message_html;               //結果をuserMessageに文字列として含める。
     formData.append('user_message', interimTranscript)  //FormDataオブジェクトの中に、音声入力された文字列を含める
@@ -42,9 +42,9 @@ function landing (){
   
   XHR.onload = () => {
     const program_message_html = `
-                  <li class="fadeIn">
+                  <p class="fadeIn">
                     ${XHR.response.program_message}
-                  </li>
+                  </p>
                   `;
     programMessage.innerHTML = program_message_html; //プログラムからの応答を要素に挿入
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成
