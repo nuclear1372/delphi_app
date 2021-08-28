@@ -18,7 +18,7 @@ class Dialogue
     end
     
     pokemon_keywords.each do |keyword| #ポケモンのリアクションのキーワードがuser＿messageに含まれているかを検証
-      if user_message[keyword] =! nil
+      if user_message[keyword] != nil
         return Pokemon.reaction(user_message)
       end
     end
