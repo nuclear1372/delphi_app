@@ -12,7 +12,9 @@ class ProgramMessage < ActiveHash::Base
   def self.reaction(user_message)
     self.data.each do |data|
       if data[:wakeword] == user_message[data[:wakeword]]
-        return data[:reaction]
+        reaction = []
+        reaction << data[:reaction]
+        return reaction
       end
     end
   end

@@ -35,8 +35,9 @@ class Dialogue
         return RubyMethod.reaction(user_message)
       end
     end  
-
-    return error_message_list[rand(0..2)]#いずれのキーワードも含まれていない場合のアクションをランダムでリターンする
+    error_message = []
+    error_message << error_message_list[rand(0..2)]#いずれのキーワードも含まれていない場合のアクションをランダムでリターンする
+    return error_message
   end
   
 

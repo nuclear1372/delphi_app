@@ -1,9 +1,27 @@
-p {
+.user-message {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-text {
   text-align: center;
   color: rebeccapurple;
   font-size: larger;
+}
+.method-text {
+  text-align: center;
+  color: rebeccapurple;
+  font-size: larger;
+}
+
+.method-example {
+  color: rebeccapurple;
+  font-size: larger;
   border: rebeccapurple solid 1px;
-  border-radius: 20px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 h2 {
@@ -30,13 +48,28 @@ h2 {
 }
 
 .result-div {
+  height: 100%;
   width: 25%;
   margin: 20px;
+  border: rebeccapurple solid 1px;
+  border-radius: 20px
 }
 
 .program-result {
+  height: 100%;
   width: 25%;
   margin: 20px;
+  overflow-y: scroll;
+  border: rebeccapurple solid 1px;
+  border-radius: 20px;
+}
+.program-message {
+  text-align: center;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .talk-btn {
@@ -46,6 +79,7 @@ h2 {
 }
 
 .action-box {
+  height: 10%;
   text-align: center;
 }
 
@@ -64,12 +98,11 @@ h2 {
 }
 
 .fadeIn {
-  animation-name: fadeInAnime;/*1で解説*/
-  animation-fill-mode:backwards;/*2で解説*/
-  animation-duration:3s;/*3で解説*/
-  animation-timing-function:ease;/*5で解説*/
-  animation-delay: 0.5s;/*6で解説*/
-  animation-direction:normal;/*7で解説*/
+  animation-name: fadeInAnime;
+  animation-fill-mode:backwards;
+  animation-duration:3s;
+  animation-timing-function:ease;
+  animation-direction:normal;
   }
   
   /*1で解説*/
@@ -148,3 +181,4 @@ canvas{
   left:0;
   width: 100%;
 }
+

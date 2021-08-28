@@ -26,7 +26,7 @@ function landing (){
   speech.onresult = (e) => {                                //音声認識サービスと通信し、結果を返した時に実行
     let interimTranscript = event.results[0][0].transcript; // 暫定の認識結果
     const user_message_html = `
-                              <p>
+                              <p class="user-text">
                                 ${interimTranscript}
                               </p>
                               `;
@@ -41,11 +41,23 @@ function landing (){
   };
   
   XHR.onload = () => {
-    const program_message_html = `
-                  <p class="fadeIn">
-                    ${XHR.response.program_message}
-                  </p>
-                  `;
+    console.log(XHR.response.program_message);
+    let program_message_html = `
+                  <div>
+                    <p class="fadeIn method-text delay-time05">
+                      ${XHR.response.program_message[0]}
+                    </p>
+                  </div>`;
+    if (XHR.response.program_message[1]){
+      program_message_html = `<div class="program-contents">
+                                <p class="fadeIn method-text delay-time05">
+                                  ${XHR.response.program_message[0]}
+                                </p>
+                                <p class="fadeIn method-example delay-time1">
+                                  ${XHR.response.program_message[1]}
+                                </p>
+                              </div>`;
+    }              
     programMessage.innerHTML = program_message_html; //プログラムからの応答を要素に挿入
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成
     var speaker = window.speechSynthesis;
