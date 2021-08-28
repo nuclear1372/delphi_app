@@ -17,10 +17,12 @@ function landing (){
 
   startBtn.onmousedown = () => {
     speech.start(); //ボタンを押すと入力受付開始
+    startBtn.setAttribute("style", "background-color: mediumspringgreen")
   };
 
   startBtn.onmouseup = () => {
     speech.stop(); //ボタンを離すと入力受付終了
+    startBtn.removeAttribute("style", "background-color: mediumspringgreen")
   };
   
   speech.onresult = (e) => {                                //音声認識サービスと通信し、結果を返した時に実行
@@ -41,7 +43,6 @@ function landing (){
   };
   
   XHR.onload = () => {
-    console.log(XHR.response.program_message);
     let program_message_html = `
                   <div>
                     <p class="fadeIn method-text delay-time05">

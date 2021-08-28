@@ -73,9 +73,8 @@ h2 {
 }
 
 .talk-btn {
-  padding: 30px;
   margin: 20px;
-  font-size: large;
+  border-radius: 50%;
 }
 
 .action-box {
@@ -182,3 +181,17 @@ canvas{
   width: 100%;
 }
 
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+button img {
+  display: block;
+}
+
+button:active,
+button img {
+  position: relative;
+}
