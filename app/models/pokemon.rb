@@ -1,6 +1,6 @@
 class Pokemon < ActiveHash::Base
   self.data = [
-    { id: 1, name: 'フシギダネ', category: 'たね', type: '草',characteristic: 'しんりょく', explain: '生まれた時から背中に植物のたねがあって、少しずつ大きく育つ。'},
+    { id: 1, name: 'フシギダネ', category: 'たね', type: '草',characteristic: 'しんりょく', explain: "生まれた時から背中に植物のたねがあって少しずつ大きく育つ。"},
     { id: 2, name: 'フシギソウ', category: 'たね', type: '草',characteristic: 'しんりょく', explain: '太陽の光を浴びるほど、体に力が湧いて背中のつぼみが育っていく。'},
     { id: 3, name: 'フシギバナ', category: 'たね', type: '草',characteristic: 'しんりょく', explain: '太陽エネルギーを栄養にして、大きな花が開く。日向に引き寄せられるように移動する。'},
     { id: 4, name: 'ヒトカゲ', category: 'トカゲ', type: '炎', characteristic: 'もうか', explain: '生まれた時から、尻尾に炎が灯っている。炎が消えた時、その命は終わってしまう。' },
@@ -157,7 +157,7 @@ class Pokemon < ActiveHash::Base
   def self.reaction(user_message)
     self.data.each do |data|
       if data[:name] == user_message[data[:name]] && user_message == data[:name]
-        return data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + '。' + data[:explain]
+        return data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + "。" + data[:explain]
       elsif data[:name] == user_message[data[:name]]
         return data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + '。' + data[:explain]
       end
