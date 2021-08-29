@@ -43,6 +43,7 @@ function landing (){
   };
   
   XHR.onload = () => {
+    console.log(XHR.response.program_message);
     let program_message_html = `
                   <div>
                     <p class="fadeIn method-text delay-time05">
@@ -52,10 +53,10 @@ function landing (){
     if (XHR.response.program_message[1]){
       program_message_html = `<div class="program-contents">
                                 <p class="fadeIn method-text delay-time05">
-                                  ${XHR.response.program_message[0]}
+                                  ${XHR.response.program_message[1]}
                                 </p>
                                 <p class="fadeIn method-example delay-time1">
-                                  ${XHR.response.program_message[1]}
+                                  ${XHR.response.program_message[2]}
                                 </p>
                               </div>`;
     }              
