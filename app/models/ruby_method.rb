@@ -28,12 +28,23 @@ class RubyMethod < ActiveHash::Base
     {id: 26, first_priolity: 'ハッシュ', second_priolity: '数', therd_priolity: '要素', forth_priolity: 'HASH', fifth_priolity: '取得', suggestion: 'lengthメソッドを提案。ハッシュの要素の数を返します。', example: 'h = { <br>"d" => 100,<br> "a" => 200,<br> "v" => 300,<br> "e" => 400 } <br>h.length #=> 4'},
     {id: 27, first_priolity: 'ハッシュ', second_priolity: '結合', therd_priolity: '別の', forth_priolity: 'HASH', fifth_priolity: '他', suggestion: 'mergeメソッドを提案。<br>ハッシュの内容を順番にマージ(統合)した結果を返します。', example: 'h1 = { "a" => 100,"b" => 200 } <br>h2 = { "b" => 246, "c" => 300 } <br>h3 = { "b" => 357,"d" => 400 } <br>h1.merge #=> {"a"=>100, "b"=>200} <br>h1.merge(h2) <br>#=> {"a"=>100, "b"=>246, "c"=>300} <br>h1.merge(h2, h3)  <br>#=> {"a"=>100, "b"=>357, "c"=>300, "d"=>400}'},
     {id: 28, first_priolity: 'ハッシュ', second_priolity: '配列', therd_priolity: '変', forth_priolity: 'HASH', fifth_priolity: '換', suggestion: 'to_aメソッドを提案。<br>キーと値からなる 2 要素の配列を並べた配列を生成して返します。', example: 'h1 = { <br>"a" => 100,<br> 2 => ["some"],<br> :c => "c" } <br>h1.to_a <br>#=> [["a", 100],<br> [2, ["some"]],<br> [:c, "c"]]'},
-    {id: 29, first_priolity: 'ハッシュ', second_priolity: 'バリュー', therd_priolity: 'Value', forth_priolity: 'HASH', fifth_priolity: '全て', suggestion: 'valuesメソッドを提案。<br>ハッシュの全値の配列を返します。', example: 'h1 = { <br>"a" => 100,<br> 2 => ["some"],<br> :c => "c" } <br>h1.values <br>#=> [100, ["some"], "c"]'}
+    {id: 29, first_priolity: 'ハッシュ', second_priolity: 'バリュー', therd_priolity: 'Value', forth_priolity: 'HASH', fifth_priolity: '全て', suggestion: 'valuesメソッドを提案。<br>ハッシュの全値の配列を返します。', example: 'h1 = { <br>"a" => 100,<br> 2 => ["some"],<br> :c => "c" } <br>h1.values <br>#=> [100, ["some"], "c"]'},
+    {id: 30, first_priolity: '文字', second_priolity: '指定', therd_priolity: '取', forth_priolity: 'だけ', fifth_priolity: '部分', suggestion: 'sliceメソッドを提案。Rangeオブジェクトで開始位置と終端を指定すると、部分文字列を新しく作って返します。開始位置が負の場合は文字列の末尾から数えます。', example: "'abcd'[ 2 ..  3] # => 'cd'<br> 'abcd'[-3 ..  2] # => 'bc'" },
+    {id: 31, first_priolity: '文字', second_priolity: '変', therd_priolity: '換', forth_priolity: '別', fifth_priolity: '他', suggestion: 'self[substr] = valを提案。文字列中の substr に一致する最初の部分文字列を文字列 val で置き換えます。', example: 'buf = "string"<br>buf["trin"] = "!!"<br> buf # => "s!!g"' },
+    {id: 32, first_priolity: '文字', second_priolity: '変', therd_priolity: '換', forth_priolity: '特定', fifth_priolity: '部分', suggestion: 'self[regexp] = valを提案。正規表現 regexp にマッチした部分文字列全体を val で置き換えます。', example: 'buf = "string"<br> buf[/tr../] = "!!"<br> buf # => "s!!g"' },
+    {id: 33, first_priolity: '文字', second_priolity: '頭', therd_priolity: '大', forth_priolity: '変', fifth_priolity: '換', suggestion: 'capitalizeメソッドを提案。文字列先頭の文字を大文字に、残りを小文字に変更した文字列を返します。', example: 'p "foobar--".capitalize<br># => "Foobar--"<br> "fooBAR--".capitalize<br># => "Foobar--"<br>"FOOBAR--".capitalize<br># => "Foobar--"' },
+    {id: 34, first_priolity: '文字', second_priolity: '比', therd_priolity: '一致', forth_priolity: '同じ', fifth_priolity: '含', suggestion: 'casecmp?メソッドを提案。<br>大文字小文字の違いを無視し文字列を比較します。<br>文字列が一致する場合には true を返し、一致しない場合には false を返します。', example: '"abcdef".casecmp?("abcde")<br>#=> false<br>"aBcDeF".casecmp?("abcdef")<br>#=> true' },
+    {id: 35, first_priolity: '文字', second_priolity: '数', therd_priolity: '含', forth_priolity: '特定', fifth_priolity: '一致', suggestion: 'countメソッドを提案。<br>引数に指定された文字が対象の文字列にいくつあるか数えます。', example: "'abcdefg'.count('c')<br># => 1 <br>'123456789'.count('2378')<br># => 4"},
+    {id: 36, first_priolity: '文字', second_priolity: '除', therd_priolity: '指定', forth_priolity: '特定', fifth_priolity: '消', suggestion: 'deleteメソッドを提案。<br>対象の文字列から引数に含まれる文字を取り除いた文字列を生成して返します', example: ' "123456789".delete("2378")<br>#=> "14569" <br>"123456789".delete("2-8", "^4-6")<br>#=> "14569"' },
+    {id: 37, first_priolity: '文字', second_priolity: '小', therd_priolity: '変', forth_priolity: '換', fifth_priolity: 'すべて', suggestion: 'downcaseメソッドを提案。<br>全ての大文字を対応する小文字に置き換えた文字列を返します。<br>どの文字がどう置き換えられるかは、オプションの有無や文字列のエンコーディングに依存します。', example: '"STRing?".downcase<br># => "string?"' },
+    {id: 38, first_priolity: '文字', second_priolity: '含', therd_priolity: '確認', forth_priolity: '知', fifth_priolity: 'どうか', suggestion: 'include?メソッドを提案。<br>対象の文字列中に引数の部分文字列が含まれていれば真を返します。', example: '"hello".include? "lo" #=> true <br>"hello".include? "ol" #=> false <br>"hello".include? ?h #=> true' },
+    {id: 39, first_priolity: '文字', second_priolity: '挿', therd_priolity: '入', forth_priolity: '中', fifth_priolity: '別', suggestion: 'insertメソッドを提案。<br>第一引数に指定した位置の直前に第二引数に指定した文字列を挿入します。', example: 'str = "foobaz" <br>str.insert(3, "bar") <br>str # => "foobarbaz"' },
+    {id: 40, first_priolity: '文字', second_priolity: '数', therd_priolity: '何文字', forth_priolity: '数え', fifth_priolity: 'いくつ', suggestion: 'lengthメソッドを提案。<br>文字列の文字数を返します。', example: '"test".length   # => 4 <br> "テスト".length   # => 3' },
+    {id: 41, first_priolity: '文字', second_priolity: '順番', therd_priolity: '逆', forth_priolity: '並び', fifth_priolity: '反転', suggestion: 'reverseメソッドを提案。<br>文字列を文字単位で左右逆転した文字列を返します。', example: '"foobar".reverse   # => "raboof"' }
   ]
 
   def self.reaction(user_message)
     suggestions = []
-    suggestion_candidate = []
     error_message = []
     error_message << '該当するメソッドが見つかりませんでした。言い方を変えてみて頂けますか？'
     
@@ -46,6 +57,7 @@ class RubyMethod < ActiveHash::Base
         end
       end
       if matching_score >= 3
+        suggestion_candidate = []
         suggestion_candidate << matching_score << method[:suggestion] << method[:example]
         suggestions << suggestion_candidate
       end
