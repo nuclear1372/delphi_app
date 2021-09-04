@@ -157,9 +157,9 @@ class Pokemon < ActiveHash::Base
   def self.reaction(user_message)
     self.data.each do |data|
       if data[:name] == user_message[data[:name]] && user_message == data[:name]
-        return data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + "。" + data[:explain]
+        return [data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + "。" + data[:explain]]
       elsif data[:name] == user_message[data[:name]]
-        return data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + '。' + data[:explain]
+        return [data[:name] + '、' + data[:category] + 'ポケモン。' + data[:type] + 'タイプのポケモン。特性は' + data[:characteristic] + '。' + data[:explain]]
       end
     end
   end
