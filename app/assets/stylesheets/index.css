@@ -200,6 +200,7 @@ button img {
 .program-suggestion {
   display: flex;
   justify-content: center;
+  width:100%;
 }
 
 pre {
@@ -211,3 +212,4 @@ pre {
   color: #fff;
   overflow-x: scroll;
 }
+
