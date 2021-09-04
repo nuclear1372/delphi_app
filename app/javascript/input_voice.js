@@ -61,6 +61,7 @@ function landing (){
                               </div>  `;
     }              
     programMessage.innerHTML = program_message_html; //プログラムからの応答を要素に挿入
+    hljs.highlightAll(); //コードブロックのハイライト
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成
     var speaker = window.speechSynthesis;
     var voice = speechSynthesis.getVoices().find(function(voice){ //音声の種類のオブジェクトを取得（２回目）
