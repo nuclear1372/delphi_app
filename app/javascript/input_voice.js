@@ -55,10 +55,10 @@ function landing (){
                                 <p class="fadeIn method-text delay-time05">
                                   ${XHR.response.program_message[1]}
                                 </p>
-                                <p class="fadeIn method-example delay-time1">
+                                <div class="fadeIn delay-time1 program-suggestion">
                                   ${XHR.response.program_message[2]}
-                                </p>
-                              </div>`;
+                                </div>
+                              </div>  `;
     }              
     programMessage.innerHTML = program_message_html; //プログラムからの応答を要素に挿入
     var synthes = new SpeechSynthesisUtterance();  //音声出力APIのインスタンス生成

@@ -58,7 +58,12 @@ class RubyMethod < ActiveHash::Base
     {id: 56, first_priolity: '要素', second_priolity: '値', therd_priolity: '含', forth_priolity: '当てはま', fifth_priolity: '正規表現', suggestion: 'grepメソッドを提案。<br>grep(pattern) {|item| ... }においてpattern === itemが成立する要素を全て含んだ配列を返します。<br>ブロックとともに呼び出された時には条件の成立した要素に対してそれぞれブロックを評価し、その結果の配列を返します。<br>マッチする要素がひとつもなかった場合は空の配列を返します。', example: "['aa', 'bb', 'cc', 'dd', 'ee'].grep(/[bc]/)<br># => ['bb', 'cc']"},
     {id: 57, first_priolity: '配列', second_priolity: '整', therd_priolity: '理', forth_priolity: 'ハッシュ', fifth_priolity: 'HASH', suggestion: 'group_byメソッドを提案。<br>ブロックを評価した結果をキー、対応する要素の配列を値とするハッシュを返します。', example: '(1..6).group_by {|i| i%3}<br>#=> {0=>[3, 6], 1=>[1, 4], 2=>[2, 5]}'},
     {id: 58, first_priolity: '要素', second_priolity: '値', therd_priolity: '判別', forth_priolity: '分', fifth_priolity: '条件', suggestion: 'partitionメソッドを提案。<br>各要素を、ブロックの条件を満たす要素と満たさない要素に分割します。<br>各要素に対してブロックを評価して、その値が真であった要素の配列と、偽であった要素の配列の2つを配列に入れて返します。', example: '[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0].partition {|i| i % 3 == 0 }<br>#=> [[9, 6, 3, 0], [10, 8, 7, 5, 4, 2, 1]]'},
-    {id: 59, first_priolity: '判別', second_priolity: '全て', therd_priolity: '条件', forth_priolity: '当てはまらない', fifth_priolity: '該当しない', suggestion: 'none?メソッドを提案。<br>ブロックを指定しない場合は、Enumerableオブジェクトのすべての要素が偽であれば真を返します。<br>ブロックを指定した場合はEnumerableオブジェクトのすべての要素をブロックで評価した結果が、すべて偽であれば真を返します。', example: "require 'set'<br>Set['ant', 'bear', 'cat'].none?{|word| word.length == 5}<br># => true<br>Set['ant', 'bear', 'cat'].none?{|word| word.length >= 4}<br># => false<br>Set['ant', 'bear', 'cat'].none?(/d/)<br># => true<brSet[nil,false].none? # => true<br>Set[nil, false, true].none? # => false>"}
+    {id: 59, first_priolity: '判別', second_priolity: '全て', therd_priolity: '条件', forth_priolity: '当てはまらない', fifth_priolity: '該当しない', suggestion: 'none?メソッドを提案。<br>ブロックを指定しない場合は、Enumerableオブジェクトのすべての要素が偽であれば真を返します。<br>ブロックを指定した場合はEnumerableオブジェクトのすべての要素をブロックで評価した結果が、すべて偽であれば真を返します。', example: '<pre><code class="ruby">require "set"
+Set["ant", "bear", "cat"].none? {|word| word.length == 5} # => true
+Set["ant", "bear", "cat"].none? {|word| word.length >= 4} # => false
+Set["ant", "bear", "cat"].none?(/d/) # => true
+Set[nil,false].none? # => true
+Set[nil, false, true].none? # => false</code></pre>'}
   ]
 
   def self.reaction(user_message)
