@@ -51,7 +51,7 @@ h2 {
 
 .result-div {
   height: 100%;
-  width: 40%;
+  width: 30%;
   margin: 20px;
   border: rebeccapurple solid 1px;
   border-radius: 20px
@@ -59,7 +59,7 @@ h2 {
 
 .program-result {
   height: 100%;
-  width: 40%;
+  width: 30%;
   margin: 20px;
   overflow: scroll;
   border: rebeccapurple solid 1px;
