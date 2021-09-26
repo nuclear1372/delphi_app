@@ -55,11 +55,11 @@ function draw(canvas, color) {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     //波線を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
-    drawWave(canvas, color[0], 0.8, 3, 0);
-	drawWave(canvas, color[1], 0.5, 4, 0);
-	drawWave(canvas, color[2], 0.3, 1.6, 0);
-	drawWave(canvas, color[3], 0.2, 3, 100);
-	drawWave(canvas, color[4], 0.5, 1.6, 250);
+    drawWave(canvas, color[0], 0.7, 3, 0);
+	drawWave(canvas, color[1], 0.7, 4, 0);
+	drawWave(canvas, color[2], 0.7, 1.6, 0);
+	drawWave(canvas, color[3], 0.7, 3, 100);
+	drawWave(canvas, color[4], 0.7, 1.6, 250);
 }
 
 /**

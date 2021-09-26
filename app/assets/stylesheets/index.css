@@ -1,3 +1,11 @@
+body {
+  background-color: silver;
+}
+
+header {
+  height: 60px;
+}
+
 .user-message {
   height: 90%;
   display: flex;
@@ -7,29 +15,31 @@
 
 .user-text {
   text-align: center;
-  color: rebeccapurple;
+  color:red;
   font-size: larger;
 }
 .method-text {
   padding: 0 10px;
-  color: rebeccapurple;
+  color:royalblue;
   font-size: larger;
+  font-family:'HiraMinPro-W6';
 }
 
 .method-example {
-  color: rebeccapurple;
-  background-color:cornsilk;
+  color: royalblue;
   font-size: larger;
-  border: rebeccapurple solid 1px;
+  border: royalblue solid 1px;
   border-radius: 10px;
   margin: 10px;
   padding: 0 10px;
 }
 
-h2 {
-  color: rebeccapurple;
+.request {
+  color: red;
 }
-
+.suggestion {
+  color:royalblue;
+}
 .wrapper {
   height: 100vh;
   width: 100vw;
@@ -50,20 +60,22 @@ h2 {
 }
 
 .result-div {
+  background-color: ivory;
   height: 100%;
   width: 40%;
   margin: 20px;
-  border: rebeccapurple solid 1px;
-  border-radius: 20px
+  border: red solid 2px;
+  border-radius: 50px
 }
 
 .program-result {
+  background-color: ivory;
   height: 100%;
   width: 40%;
   margin: 20px;
   overflow: scroll;
-  border: rebeccapurple solid 1px;
-  border-radius: 20px;
+  border: royalblue solid 2px;
+  border-radius: 50px;
 }
 .program-message {
   height: 90%;
@@ -123,6 +135,11 @@ h2 {
     animation-delay: 1s;
 }
 
+.delay-time3{
+    animation-delay: 3s;
+    text-align: center;
+}
+
 .shutter{
   width: 100%;
   height: 100%;
@@ -132,7 +149,7 @@ h2 {
   right:0;
   bottom:0;
   margin: auto;
-  background-color:#fff;
+  background-color:silver;
   z-index:99;
   -webkit-animation: byeShutter 2.4s forwards;
   animation: byeShutter 2.4s forwards;
@@ -213,3 +230,307 @@ pre {
   overflow-x: scroll;
 }
 
+/*========= ナビゲーションのためのCSS ===============*/
+
+/*アクティブになったエリア*/
+#g-nav.panelactive{
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position:fixed;
+  z-index: 999;
+top: 0;
+width:100%;
+  height: 100vh;
+}
+
+/*丸の拡大*/
+.circle-bg{
+  position: fixed;
+z-index:3;
+  /*丸の形*/
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background:whitesmoke;
+  /*丸のスタート位置と形状*/
+transform: scale(0);/*scaleをはじめは0に*/
+right:-50px;
+  top:-50px;
+  transition: all .8s;/*0.6秒かけてアニメーション*/
+}
+
+.circle-bg.circleactive{
+	transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav-list{
+  display: none;/*はじめは表示なし*/
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999; 
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#g-nav.panelactive #g-nav-list{
+  display: block; /*クラスが付与されたら出現*/
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+	opacity: 0;/*はじめは透過0*/
+    /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*背景が出現後にナビゲーションを表示*/
+#g-nav.panelactive ul {
+  opacity:1;
+}
+
+/* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
+#g-nav.panelactive ul li{
+  animation-name:gnaviAnime;
+  animation-duration:1s;
+  animation-delay:.2s;/*0.2 秒遅らせて出現*/
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+  @keyframes gnaviAnime{
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  }
+}
+
+/*リストのレイアウト設定*/
+#g-nav li{
+	text-align: center; 
+	list-style: none;
+}
+
+
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1{
+	position:fixed;
+	top:10px;
+	right: 10px;
+	z-index: 9999;/*ボタンを最前面に*/
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+
+/*×に変化*/	
+.openbtn1 span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+background-color: black;
+  width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+	top:15px;	
+}
+
+.openbtn1 span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+	top:31px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3){
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/*アコーディオン全体*/
+.accordion-area{
+  list-style: none;
+  width: 96%;
+  max-width: 900px;
+  margin:0 auto;
+}
+
+.accordion-area li{
+  margin: 10px 0;
+  background-color: whitesmoke;
+}
+
+.accordion-area section {
+  position: relative;
+  border: 2px solid red;
+}
+
+.accordion-area section::after {
+  content: '';
+    /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+    /*背景の形状*/
+  width: 0;
+  height:100%;
+  background:silver;
+    /*アニメーションの指定*/
+  transition:all .4s;
+  opacity: 0;/*はじめは透過0*/
+}
+
+.accordion-area section:hover::after {
+  /*背景の形状*/
+width: 100%;/*横幅を伸ばす*/
+opacity: 1;/*不透明に*/
+}
+
+/*アコーディオンタイトル*/
+.title {
+  color: red;
+  position: relative;/*+マークの位置基準とするためrelative指定*/
+  cursor: pointer;
+  font-size:20px;
+  padding: 3% 3% 3% 50px;
+  transition: all .5s ease;
+}
+
+/*アイコンの＋と×*/
+.title::before,
+.title::after{
+  position: absolute;
+  content:'';
+  width: 15px;
+  height: 2px;
+  background-color: #333;
+  
+}
+.title::before{
+  top:48%;
+  left: 15px;
+  transform: rotate(0deg);
+  
+}
+.title::after{    
+  top:48%;
+  left: 15px;
+  transform: rotate(90deg);
+
+}
+/*　closeというクラスがついたら形状変化　*/
+.title.close::before{
+transform: rotate(45deg);
+}
+
+.title.close::after{
+transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+  font-size: 17px;
+  font-family:'HiraMinPro-W6';
+  color: royalblue;
+  text-align: center;
+  display: none;/*はじめは非表示*/
+  background: ivory;
+  border-radius: 30px;
+margin:0 3% 3% 3%;
+  padding: 3%;
+}
+
+.pulse-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: royalblue;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.pulse-btn::before, .pulse-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 1px solid mediumspringgreen;
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.pulse-btn:hover {
+  box-shadow: 0 0 20px mediumspringgreen;
+}
+
+.pulse-btn:hover::before, 
+.pulse-btn:hover::after {
+  animation: pulsate 2s linear infinite;
+}
+
+.pulse-btn:hover::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pulse-btn {
+    box-shadow: 0 0 20px mediumspringgreen;
+  }
+
+  .pulse-btn::before, .pulse-btn::after {
+    animation: pulsate 2s linear infinite;
+  }
+
+  .pulse-btn::after {
+    animation: pulsate 2s linear infinite;
+  }
+}
