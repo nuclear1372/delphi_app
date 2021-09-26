@@ -461,6 +461,7 @@ transform: rotate(-45deg);
   text-align: center;
   display: none;/*はじめは非表示*/
   background: ivory;
+  border:royalblue solid 2px;
   border-radius: 30px;
 margin:0 3% 3% 3%;
   padding: 3%;
