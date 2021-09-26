@@ -15,7 +15,7 @@ header {
 
 .user-text {
   text-align: center;
-  color: orangered;
+  color:red;
   font-size: larger;
 }
 .method-text {
@@ -35,7 +35,7 @@ header {
 }
 
 .request {
-  color: orangered;
+  color: red;
 }
 .suggestion {
   color:royalblue;
@@ -60,16 +60,16 @@ header {
 }
 
 .result-div {
-  background-color: whitesmoke;
+  background-color: ivory;
   height: 100%;
   width: 40%;
   margin: 20px;
-  border: orangered solid 2px;
+  border: red solid 2px;
   border-radius: 50px
 }
 
 .program-result {
-  background-color: whitesmoke;
+  background-color: ivory;
   height: 100%;
   width: 40%;
   margin: 20px;
@@ -133,6 +133,11 @@ header {
     
 .delay-time1{
     animation-delay: 1s;
+}
+
+.delay-time3{
+    animation-delay: 3s;
+    text-align: center;
 }
 
 .shutter{
@@ -245,12 +250,12 @@ z-index:3;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: royalblue;
+  background:whitesmoke;
   /*丸のスタート位置と形状*/
 transform: scale(0);/*scaleをはじめは0に*/
 right:-50px;
   top:-50px;
-  transition: all .6s;/*0.6秒かけてアニメーション*/
+  transition: all .8s;/*0.6秒かけてアニメーション*/
 }
 
 .circle-bg.circleactive{
@@ -377,16 +382,39 @@ background-color: black;
 
 .accordion-area li{
   margin: 10px 0;
-  background-color: silver;
+  background-color: whitesmoke;
 }
 
 .accordion-area section {
-border: 2px solid;
+  position: relative;
+  border: 2px solid red;
+}
+
+.accordion-area section::after {
+  content: '';
+    /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+    /*背景の形状*/
+  width: 0;
+  height:100%;
+  background:silver;
+    /*アニメーションの指定*/
+  transition:all .4s;
+  opacity: 0;/*はじめは透過0*/
+}
+
+.accordion-area section:hover::after {
+  /*背景の形状*/
+width: 100%;/*横幅を伸ばす*/
+opacity: 1;/*不透明に*/
 }
 
 /*アコーディオンタイトル*/
 .title {
-  color: orangered;
+  color: red;
   position: relative;/*+マークの位置基準とするためrelative指定*/
   cursor: pointer;
   font-size:20px;
@@ -432,7 +460,7 @@ transform: rotate(-45deg);
   color: royalblue;
   text-align: center;
   display: none;/*はじめは非表示*/
-  background: whitesmoke;
+  background: ivory;
   border-radius: 30px;
 margin:0 3% 3% 3%;
   padding: 3%;
