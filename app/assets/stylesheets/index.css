@@ -437,3 +437,72 @@ transform: rotate(-45deg);
 margin:0 3% 3% 3%;
   padding: 3%;
 }
+
+.pulse-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: royalblue;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.pulse-btn::before, .pulse-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 1px solid mediumspringgreen;
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.pulse-btn:hover {
+  box-shadow: 0 0 20px mediumspringgreen;
+}
+
+.pulse-btn:hover::before, 
+.pulse-btn:hover::after {
+  animation: pulsate 2s linear infinite;
+}
+
+.pulse-btn:hover::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pulse-btn {
+    box-shadow: 0 0 20px mediumspringgreen;
+  }
+
+  .pulse-btn::before, .pulse-btn::after {
+    animation: pulsate 2s linear infinite;
+  }
+
+  .pulse-btn::after {
+    animation: pulsate 2s linear infinite;
+  }
+}
