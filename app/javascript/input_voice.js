@@ -14,9 +14,10 @@ function landing (){
   var voice = speechSynthesis.getVoices().find(function(voice){ //音声の種類のオブジェクトを取得（１回目）
     return voice.name === "Google 日本語";
   });
+  var inputRunning = false;
   programMessage.innerHTML = `
                               <div>
-                                <p class="fadeIn method-text delay-time3">
+                                <p class="fadeIn program-greeting delay-time3">
                                   ようこそ！<br>
                                   ご要望に沿ったRuby組み込みメソッドを提案します!<br>
                                   ご利用方法の詳細は<br>
@@ -25,13 +26,15 @@ function landing (){
                               </div>`;
 
   startBtn.onmousedown = () => {
-    speech.start(); //ボタンを押すと入力受付開始
-    startBtn.setAttribute("style", "background-color: mediumspringgreen")
-  };
-
-  startBtn.onmouseup = () => {
-    speech.stop(); //ボタンを離すと入力受付終了
-    startBtn.removeAttribute("style", "background-color: mediumspringgreen")
+    if (inputRunning == false) {
+      speech.start(); //ボタンを押すと入力受付開始
+      startBtn.setAttribute("style", "background-color: mediumspringgreen")
+      inputRunning = true;
+    } else {
+      speech.stop(); //ボタンを離すと入力受付終了
+      startBtn.removeAttribute("style", "background-color: mediumspringgreen")
+      inputRunning = false;
+    }
   };
   
   speech.onresult = (e) => {                                //音声認識サービスと通信し、結果を返した時に実行

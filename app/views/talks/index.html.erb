@@ -7,9 +7,9 @@
           <section>
             <h1 class="title">Q．どうやって使うの？</h3>
             <div class="box">
-              <p>
-                画面中央のマイクボタンを押し続けている間、お使いの端末のマイクから音声入力ができます。<br>
-                マイクボタンを離すと音声入力が終了します。<br>
+              <p class="navi-message">
+                画面中央のマイクボタンを押すと、お使いの端末のマイクから音声入力ができます。<br>
+                もう一度マイクボタンを押すと音声入力が終了します。<br>
                 Ruby組み込みメソッドの提案機能を利用するには、冒頭に<b>「Ruby」</b>と発語する必要があります。<br>
                 「Ruby」と発語したのちに続けて、自分が行いたい処理などの意図を音声で入力してください。<br>
               </p>
@@ -20,13 +20,12 @@
           <section>
             <h1 class="title">Q．何ができるの？</h3>
             <div class="box">
-              <p>
+              <p class="navi-message">
                 私はあなたの発語を構成する言葉から、それらに紐づくメソッドとサンプルコードを提案します。<br>
                 例えば、下記のような提案を行うことができます。<br>
-                <b>「Ruby 配列の要素の中に、指定した要素があるかどうか確かめたい」</b>・・・include?メソッド<br>
-                <b>「Ruby ハッシュのバリューをすべて取得したい」</b>・・・valuesメソッド<br>
-                <b>「Ruby 文字列の中の特定の部分を取得したい」</b>・・・sliceメソッド<br>
-                
+                <b>「Ruby 配列の要素の中に、指定した要素があるかどうか確かめたい」</b><br>・・・include?メソッド<br>
+                <b>「Ruby ハッシュのバリューをすべて取得したい」</b><br>・・・valuesメソッド<br>
+                <b>「Ruby 文字列の中の特定の部分を取得したい」</b><br>・・・sliceメソッド<br>
               </p>
             </div>
           </section>
@@ -35,7 +34,7 @@
           <section>
             <h1 class="title">Q．上手く伝わらないよ？</h3>
             <div class="box">
-              <p>
+              <p class="navi-message">
                 私は決して日本語の理解が完璧というわけではありません。<br>
                 少し言い方を変えてみて、内容を噛み砕いて頂けると何かご提案できるかもしれません。<br>
                 また、私は全ての組み込みメソッドを網羅しているわけではありません。<br>
@@ -48,9 +47,9 @@
           <section>
             <h1 class="title">おまけ</h3>
             <div class="box">
-              <p>
+              <p class="navi-message">
                 私はRubyでコーディングを行う方々のサポートをする目的で作られています。<br>
-                「あのメソッドなんだっけ」「この処理に使えるメソッドって何だろう」<br>
+                「あのメソッドなんだっけ」<br>「この処理に使えるメソッドって何だろう」<br>
                 そんな疑問をスピーディに解決し、少しでもあなたのお役に立てることを願っています。
               </p>
             </div>
@@ -63,10 +62,7 @@
 </header>
 <div class="wrapper">
   <div class="messages">
-    <div id="result-div" class="result-div">
-      <div class="action-box">
-        <h2 class="request fadeIn delay-time05">【Request】</h2>
-      </div>  
+    <div id="result-div" class="result-div"> 
       <div id="user-message" class="user-message">
       </div>
     </div>
@@ -74,9 +70,6 @@
       <button class="talk-btn poyopoyo pulse-btn" id="talk-btn"><img src="images/mike.svg" alt="マイク" class="mike" width="100" height="100"></button>
     </div>
     <div id='program-result' class="program-result">
-      <div class="action-box">
-        <h2 class="suggestion fadeIn delay-time1">【Suggestion】</h2>
-      </div>
       <div id="program-message" class="program-message">
       </div>
     </div>

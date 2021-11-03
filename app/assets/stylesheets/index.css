@@ -18,6 +18,13 @@ header {
   color:red;
   font-size: larger;
 }
+.program-greeting {
+  padding: 0 10px;
+  color:royalblue;
+  font-size: larger;
+  font-family:'HiraMinPro-W6';
+}
+
 .method-text {
   padding: 0 10px;
   color:royalblue;
@@ -194,8 +201,9 @@ header {
   }
 canvas{
   position: absolute;
-  bottom: 0;
-  left:0;
+  top: 0px;
+  left:0px;
+  height: 100%;
   width: 100%;
 }
 
@@ -227,7 +235,7 @@ pre {
   border-radius: 5px;
   background: #25292f;
   color: #fff;
-  overflow-x: scroll;
+  overflow: scroll;
 }
 
 /*========= ナビゲーションのためのCSS ===============*/
@@ -533,5 +541,84 @@ margin:0 3% 3% 3%;
 
   .pulse-btn::after {
     animation: pulsate 2s linear infinite;
+  }
+}
+
+/* レスポンシブ対応【スマホ】 */
+@media (max-width: 500px) {
+  header {
+    height: 30px;
+  }
+  
+  .user-text {
+    font-size: smaller;
+  }
+
+  .method-text {
+    font-size: smaller;
+  }
+  
+  .talk-btn {
+    margin: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .mike {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .messages {
+    display: flow-root;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .result-div {
+    height: 30%;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .program-result {
+    height: 60%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .program-contents {
+    overflow: scroll;
+  }
+
+  .user-text {
+    font-size: small;
+  }
+  .program-greeting {
+    font-size: small;
+  }
+
+  .method-text {
+    display: none;
+  }
+  
+  .wave {
+    height: 30%;
+  }
+  canvas{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .title {
+    font-size: 10px;
+  }
+
+  .navi-message {
+    font-size: 5px;
   }
 }
