@@ -614,5 +614,11 @@ margin:0 3% 3% 3%;
     top: 0px;
     left: 0px;
   }
+  .title {
+    font-size: 10px;
+  }
 
+  .navi-message {
+    font-size: 5px;
+  }
 }
