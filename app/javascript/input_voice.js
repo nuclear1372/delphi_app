@@ -16,7 +16,7 @@ function landing (){
   });
   programMessage.innerHTML = `
                               <div>
-                                <p class="fadeIn method-text delay-time3">
+                                <p class="fadeIn program-greeting delay-time3">
                                   ようこそ！<br>
                                   ご要望に沿ったRuby組み込みメソッドを提案します!<br>
                                   ご利用方法の詳細は<br>
